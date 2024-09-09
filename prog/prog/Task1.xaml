@@ -1,0 +1,46 @@
+﻿<Page x:Class="prog.Task1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:prog"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Task1">
+
+    <Grid Background="AliceBlue">
+        <Grid Width="500px" Height="300px">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource CommonTextBlock}" Text="Скорость, V" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Style="{StaticResource CommonTextBlock}" Text="Расстояние, S" Grid.Row="1" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Style="{StaticResource CommonTextBlock}" Text="Время на ремонт, t" Grid.Row="2" VerticalAlignment="Center"></TextBlock>
+            <Button Style="{StaticResource CommonButton}" Name="CalculateButton" Click="CalculateButton_Click" Grid.Row="3">Подсчет</Button>
+
+            <xctk:IntegerUpDown Style="{StaticResource CommonControl}" Grid.Column="1" HorizontalAlignment="Stretch" 
+                                x:Name="SpeedBox" VerticalAlignment="Center" Background="#FFDEC6FF"/>
+            <xctk:IntegerUpDown Style="{StaticResource CommonControl}" Grid.Column="2" HorizontalAlignment="Stretch" 
+                                x:Name="SizeBox" VerticalAlignment="Center" Grid.Row="1" Background="#FFA5FFC7"/>
+            <xctk:IntegerUpDown Style="{StaticResource CommonControl}" Grid.Column="3" HorizontalAlignment="Stretch" 
+                                x:Name="TimeBox" VerticalAlignment="Center" Grid.Row="2" Background="#FF9DDBFF"/>
+            <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="WholeTimeTextBlock" Style="{StaticResource CommonTextBlock}" 
+                           Text="Общее время движения: {0}" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Name="MiddleSpeedTextBlock" Style="{StaticResource CommonTextBlock}" 
+                           Text="Средняя скорость автомобиля: {0}" HorizontalAlignment="Left"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        </StackPanel>
+    </Grid>
+</Page>
